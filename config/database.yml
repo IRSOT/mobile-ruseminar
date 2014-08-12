@@ -5,13 +5,18 @@
 #   gem 'sqlite3'
 #
 default: &default
-  adapter: sqlite3
+  adapter: mysql2
   pool: 5
   timeout: 5000
+  encoding: utf8
+  username: mobileruseminar
+  password: tPN2KsEMt8oPqk
+
 
 development:
   <<: *default
-  database: db/development.sqlite3
+  socket: /tmp/mysql.sock
+  database: mobileruseminar_dev
 
 # Warning: The database defined as "test" will be erased and
 # re-generated from your development database when you run "rake".
@@ -22,4 +27,5 @@ test:
 
 production:
   <<: *default
-  database: db/production.sqlite3
+  database: mobileruseminardb
+  socket: /var/lib/mysql/mysql.sock

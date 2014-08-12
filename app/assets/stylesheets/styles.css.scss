@@ -1,0 +1,8 @@
+@import "bootstrap";
+
+$logo-size: 60px;
+
+.navbar-brand img {
+	width: $logo-size;
+	height: $logo-size;
+}

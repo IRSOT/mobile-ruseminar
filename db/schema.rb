@@ -11,6 +11,16 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 0) do
+ActiveRecord::Schema.define(version: 20140823145524) do
+
+  create_table "lectors", force: true do |t|
+    t.string   "first_name"
+    t.string   "father_name"
+    t.string   "last_name"
+    t.string   "bio"
+    t.string   "photo_url"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
 
 end

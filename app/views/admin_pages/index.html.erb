@@ -6,19 +6,19 @@
   <div class="row">
     <div class="col-md-4">
       <%= bootstrap_form_tag url: import_lectors_path, multipart: true do |f| %>
-        <%= f.file_field :lector_import %>
+        <%= f.file_field :lector_import_file %>
         <%= f.submit "Загрузить", class: "btn btn-sm btn-info" %>
       <% end %>
     </div>
     <div class="col-md-4">
-      <%= bootstrap_form_tag url: '/admin/import/seminars' do |f| %>
-        <%= f.file_field :seminar_import %>
+      <%= bootstrap_form_tag url: import_seminars_path do |f| %>
+        <%= f.file_field :seminar_import_file %>
         <%= f.submit "Загрузить", class: "btn btn-sm btn-info" %>
       <% end %>
     </div>
     <div class="col-md-4">
-      <%= bootstrap_form_tag url: '/admin/import/seminars' do |f| %>
-        <%= f.file_field :seminar_program_import %>
+      <%= bootstrap_form_tag url: import_seminar_programs_path do |f| %>
+        <%= f.file_field :seminar_program_import_file %>
         <%= f.submit "Загрузить", class: "btn btn-sm btn-info" %>
       <% end %>
     </div>

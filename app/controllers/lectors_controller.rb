@@ -7,6 +7,19 @@ class LectorsController < ApplicationController
     @lectors = Lector.all
   end
 
+  def import
+    file = params[:lector_import_file]
+    if file.nil?
+      redirect_to admin_url, alert: "No file uploaded!"
+      return
+    end
+
+    Lector.import(file)
+    import = Import.new(date: Date.today, file: file.original_filename)
+    import.save!
+    redirect_to admin_url, notice: "Lectors imported. File: #{import.file}"
+  end
+
   # GET /lectors/1
   # GET /lectors/1.json
   def show

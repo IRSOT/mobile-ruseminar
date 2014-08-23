@@ -11,7 +11,14 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140823171739) do
+ActiveRecord::Schema.define(version: 20140823180618) do
+
+  create_table "imports", force: true do |t|
+    t.date     "date"
+    t.string   "file"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
 
   create_table "lectors", force: true do |t|
     t.string   "first_name"

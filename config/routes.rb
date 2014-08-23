@@ -1,6 +1,23 @@
 Rails.application.routes.draw do
   
-  resources :lectors
+  resources :seminars do
+    collection { post :import }
+  end
+
+  resources :seminar_programs
+    collection { post :import }
+  end
+
+  resources :seminar_sections
+
+  resources :seminar_types
+
+  # get 'admin_pages/index'
+  get 'admin' => 'admin_pages#index'
+
+  resources :lectors do
+    collection { post :import }
+  end
 
   get 'contacts' => 'static_pages#contacts'
 

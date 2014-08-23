@@ -4,7 +4,7 @@ Rails.application.routes.draw do
     collection { post :import }
   end
 
-  resources :seminar_programs
+  resources :seminar_programs do
     collection { post :import }
   end
 

@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140823145524) do
+ActiveRecord::Schema.define(version: 20140823171739) do
 
   create_table "lectors", force: true do |t|
     t.string   "first_name"
@@ -19,6 +19,41 @@ ActiveRecord::Schema.define(version: 20140823145524) do
     t.string   "last_name"
     t.string   "bio"
     t.string   "photo_url"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "seminar_programs", force: true do |t|
+    t.integer  "ruseminar_id"
+    t.text     "program"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "seminar_sections", force: true do |t|
+    t.string   "section"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "seminar_types", force: true do |t|
+    t.string   "type"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "seminars", force: true do |t|
+    t.integer  "ruseminar_id"
+    t.string   "title"
+    t.integer  "type"
+    t.integer  "section"
+    t.date     "date_start"
+    t.date     "date_end"
+    t.integer  "online"
+    t.integer  "lector"
+    t.string   "url"
+    t.integer  "price1"
+    t.integer  "price2"
     t.datetime "created_at"
     t.datetime "updated_at"
   end

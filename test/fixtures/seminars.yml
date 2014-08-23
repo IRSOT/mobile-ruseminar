@@ -1,0 +1,27 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  ruseminar_id: 1
+  title: MyString
+  type: 1
+  section: 1
+  date_start: 2014-08-23
+  date_end: 2014-08-23
+  online: 1
+  lector: 1
+  url: MyString
+  price1: 1
+  price2: 1
+
+two:
+  ruseminar_id: 1
+  title: MyString
+  type: 1
+  section: 1
+  date_start: 2014-08-23
+  date_end: 2014-08-23
+  online: 1
+  lector: 1
+  url: MyString
+  price1: 1
+  price2: 1

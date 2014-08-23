@@ -1,0 +1,34 @@
+<% provide(:title, "Админка") %>
+
+<h2>Админка</h2>
+
+<div class="container">
+  <div class="row">
+    <div class="col-md-4">
+      <%= bootstrap_form_tag url: import_lectors_path, multipart: true do |f| %>
+        <%= f.file_field :lector_import %>
+        <%= f.submit "Загрузить", class: "btn btn-sm btn-info" %>
+      <% end %>
+    </div>
+    <div class="col-md-4">
+      <%= bootstrap_form_tag url: '/admin/import/seminars' do |f| %>
+        <%= f.file_field :seminar_import %>
+        <%= f.submit "Загрузить", class: "btn btn-sm btn-info" %>
+      <% end %>
+    </div>
+    <div class="col-md-4">
+      <%= bootstrap_form_tag url: '/admin/import/seminars' do |f| %>
+        <%= f.file_field :seminar_program_import %>
+        <%= f.submit "Загрузить", class: "btn btn-sm btn-info" %>
+      <% end %>
+    </div>
+  </div>
+  <hr>
+  <div class="row">
+    <h4><%= link_to "Лекторы", :controller => :lectors, :action => :index %></h4>
+    <h4><%= link_to "Типы семинаров", :controller => :lectors, :action => :index %></h4>
+    <h4><%= link_to "Разделы семинаров", :controller => :lectors, :action => :index %></h4>
+    <h4><%= link_to "Семинары", :controller => :lectors, :action => :index %></h4>
+    <h4><%= link_to "Программы семинаров", :controller => :lectors, :action => :index %></h4>    
+  </div>
+</div>

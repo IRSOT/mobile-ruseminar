@@ -1,0 +1,14 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Ruseminar:</strong>
+  <%= @seminar_program.ruseminar_id %>
+</p>
+
+<p>
+  <strong>Program:</strong>
+  <%= @seminar_program.program %>
+</p>
+
+<%= link_to 'Edit', edit_seminar_program_path(@seminar_program) %> |
+<%= link_to 'Back', seminar_programs_path %>

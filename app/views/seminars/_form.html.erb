@@ -1,0 +1,61 @@
+<%= form_for(@seminar) do |f| %>
+  <% if @seminar.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@seminar.errors.count, "error") %> prohibited this seminar from being saved:</h2>
+
+      <ul>
+      <% @seminar.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :ruseminar_id %><br>
+    <%= f.number_field :ruseminar_id %>
+  </div>
+  <div class="field">
+    <%= f.label :title %><br>
+    <%= f.text_field :title %>
+  </div>
+  <div class="field">
+    <%= f.label :type %><br>
+    <%= f.number_field :type %>
+  </div>
+  <div class="field">
+    <%= f.label :section %><br>
+    <%= f.number_field :section %>
+  </div>
+  <div class="field">
+    <%= f.label :date_start %><br>
+    <%= f.date_select :date_start %>
+  </div>
+  <div class="field">
+    <%= f.label :date_end %><br>
+    <%= f.date_select :date_end %>
+  </div>
+  <div class="field">
+    <%= f.label :online %><br>
+    <%= f.number_field :online %>
+  </div>
+  <div class="field">
+    <%= f.label :lector %><br>
+    <%= f.number_field :lector %>
+  </div>
+  <div class="field">
+    <%= f.label :url %><br>
+    <%= f.text_field :url %>
+  </div>
+  <div class="field">
+    <%= f.label :price1 %><br>
+    <%= f.number_field :price1 %>
+  </div>
+  <div class="field">
+    <%= f.label :price2 %><br>
+    <%= f.number_field :price2 %>
+  </div>
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>

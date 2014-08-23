@@ -1,0 +1,21 @@
+<%= form_for(@seminar_type) do |f| %>
+  <% if @seminar_type.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@seminar_type.errors.count, "error") %> prohibited this seminar_type from being saved:</h2>
+
+      <ul>
+      <% @seminar_type.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :type %><br>
+    <%= f.text_field :type %>
+  </div>
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>

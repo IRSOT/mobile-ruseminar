@@ -1,0 +1,27 @@
+<h1>Listing seminar_programs</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Ruseminar</th>
+      <th>Program</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @seminar_programs.each do |seminar_program| %>
+      <tr>
+        <td><%= seminar_program.ruseminar_id %></td>
+        <td><%= seminar_program.program %></td>
+        <td><%= link_to 'Show', seminar_program %></td>
+        <td><%= link_to 'Edit', edit_seminar_program_path(seminar_program) %></td>
+        <td><%= link_to 'Destroy', seminar_program, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Seminar program', new_seminar_program_path %>

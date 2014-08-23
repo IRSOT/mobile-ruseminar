@@ -1,0 +1,59 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Ruseminar:</strong>
+  <%= @seminar.ruseminar_id %>
+</p>
+
+<p>
+  <strong>Title:</strong>
+  <%= @seminar.title %>
+</p>
+
+<p>
+  <strong>Type:</strong>
+  <%= @seminar.type %>
+</p>
+
+<p>
+  <strong>Section:</strong>
+  <%= @seminar.section %>
+</p>
+
+<p>
+  <strong>Date start:</strong>
+  <%= @seminar.date_start %>
+</p>
+
+<p>
+  <strong>Date end:</strong>
+  <%= @seminar.date_end %>
+</p>
+
+<p>
+  <strong>Online:</strong>
+  <%= @seminar.online %>
+</p>
+
+<p>
+  <strong>Lector:</strong>
+  <%= @seminar.lector %>
+</p>
+
+<p>
+  <strong>Url:</strong>
+  <%= @seminar.url %>
+</p>
+
+<p>
+  <strong>Price1:</strong>
+  <%= @seminar.price1 %>
+</p>
+
+<p>
+  <strong>Price2:</strong>
+  <%= @seminar.price2 %>
+</p>
+
+<%= link_to 'Edit', edit_seminar_path(@seminar) %> |
+<%= link_to 'Back', seminars_path %>

@@ -1,0 +1,29 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>First name:</strong>
+  <%= @lector.first_name %>
+</p>
+
+<p>
+  <strong>Father name:</strong>
+  <%= @lector.father_name %>
+</p>
+
+<p>
+  <strong>Last name:</strong>
+  <%= @lector.last_name %>
+</p>
+
+<p>
+  <strong>Bio:</strong>
+  <%= @lector.bio %>
+</p>
+
+<p>
+  <strong>Photo url:</strong>
+  <%= @lector.photo_url %>
+</p>
+
+<%= link_to 'Edit', edit_lector_path(@lector) %> |
+<%= link_to 'Back', lectors_path %>

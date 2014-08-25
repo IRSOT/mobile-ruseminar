@@ -25,10 +25,10 @@
   </div>
   <hr>
   <div class="row">
-    <h4><%= link_to "Лекторы", :controller => :lectors, :action => :index %></h4>
-    <h4><%= link_to "Типы семинаров", :controller => :lectors, :action => :index %></h4>
-    <h4><%= link_to "Разделы семинаров", :controller => :lectors, :action => :index %></h4>
-    <h4><%= link_to "Семинары", :controller => :lectors, :action => :index %></h4>
-    <h4><%= link_to "Программы семинаров", :controller => :lectors, :action => :index %></h4>    
+    <h4><%= link_to "Лекторы", :controller => :lectors, :action => :index %> (<%= @lectors %>)</h4>
+    <h4><%= link_to "Типы семинаров", :controller => :lectors, :action => :index %> (<%= @types %>)</h4>
+    <h4><%= link_to "Разделы семинаров", :controller => :lectors, :action => :index %> (<%= @sections %>)</h4>
+    <h4><%= link_to "Семинары", :controller => :lectors, :action => :index %> (<%= @seminars %>)</h4>
+    <h4><%= link_to "Программы семинаров", :controller => :lectors, :action => :index %> (<%= @programs %>)</h4>    
   </div>
 </div>

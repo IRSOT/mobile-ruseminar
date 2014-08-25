@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140823180618) do
+ActiveRecord::Schema.define(version: 20140825134215) do
 
   create_table "imports", force: true do |t|
     t.date     "date"
@@ -24,10 +24,10 @@ ActiveRecord::Schema.define(version: 20140823180618) do
     t.string   "first_name"
     t.string   "father_name"
     t.string   "last_name"
-    t.string   "bio"
     t.string   "photo_url"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.text     "bio"
   end
 
   create_table "seminar_programs", force: true do |t|

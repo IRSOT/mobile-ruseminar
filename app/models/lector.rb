@@ -6,18 +6,43 @@ class Lector < ActiveRecord::Base
 	def self.import(file)
 		# print file.path
 
-		CSV.foreach(file.path, { col_sep: ";", headers: "i;id;name;bio;photo"} ) do |row|
-			lector = find_by_id(row["id"]) || new
+		i = 0
+		lectors_new = 0
+		lectors_updated = 0
 
-			attributes = row.to_hash
-			byebug
-
-			puts(attributes)
-
-			# lector.attributes = attributes
+		CSV.foreach(file.path, col_sep: ";", encoding: "UTF-8", quote_char: '"') do |row|
 			# lector.save!
-		end
-	end
 
+			if i > 0 
+				lector = self.find_by_id(row[1])
+				if !lector
+					lector = new
+					lector.id = row[1]
+					lectors_new += 1
+				else
+					lectors_updated += 1
+				end
+
+				 byebug if row[1] == 260
+
+				lector_names = row[2].split
+				if lector_names.length == 2
+					lector.last_name = lector_names[1]
+					lector.first_name = lector_names[0]
+					lector.father_name = ""					
+				else
+					lector.last_name = lector_names[2]
+					lector.first_name = lector_names[0]
+					lector.father_name = lector_names[1]
+				end
+
+				lector.bio = row[3]
+				lector.photo_url = row[4]
+				lector.save
+			end
+			i += 1
+		end
+		return [lectors_new, lectors_updated]
+	end
 
 end

@@ -14,10 +14,12 @@ class LectorsController < ApplicationController
       return
     end
 
-    Lector.import(file)
-    import = Import.new(date: Date.today, file: file.original_filename)
-    import.save!
-    redirect_to admin_url, notice: "Lectors imported. File: #{import.file}"
+    import_result = Lector.import(file)
+    if !import_result.empty?
+      import = Import.new(date: Date.today, file: file.original_filename)
+      import.save!
+      redirect_to admin_url, notice: "Lector import: #{import_result[0]} lectors added, #{import_result[1]} lectors updated, file: #{import.file}"
+    end
   end
 
   # GET /lectors/1

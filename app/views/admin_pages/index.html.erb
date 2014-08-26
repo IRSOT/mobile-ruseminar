@@ -3,24 +3,28 @@
 <h2>Админка</h2>
 
 <div class="container">
-  <div class="row">
-    <div class="col-md-4">
-      <%= bootstrap_form_tag url: import_lectors_path, multipart: true do |f| %>
-        <%= f.file_field :lector_import_file %>
-        <%= f.submit "Загрузить", class: "btn btn-sm btn-info" %>
-      <% end %>
-    </div>
-    <div class="col-md-4">
-      <%= bootstrap_form_tag url: import_seminars_path do |f| %>
-        <%= f.file_field :seminar_import_file %>
-        <%= f.submit "Загрузить", class: "btn btn-sm btn-info" %>
-      <% end %>
-    </div>
-    <div class="col-md-4">
-      <%= bootstrap_form_tag url: import_seminar_programs_path do |f| %>
-        <%= f.file_field :seminar_program_import_file %>
-        <%= f.submit "Загрузить", class: "btn btn-sm btn-info" %>
-      <% end %>
+  <div class="jumbotron">
+    <h4>Импорт CSV</h4>
+    <hr>
+    <div class="row">
+      <div class="col-md-4">
+        <%= bootstrap_form_tag url: import_lectors_path, multipart: true do |f| %>
+          <%= f.file_field :lector_import_file %>
+          <%= f.submit "Загрузить", class: "btn btn-sm btn-info" %>
+        <% end %>
+      </div>
+      <div class="col-md-4">
+        <%= bootstrap_form_tag url: import_seminar_programs_path do |f| %>
+          <%= f.file_field :seminar_program_import_file %>
+          <%= f.submit "Загрузить", class: "btn btn-sm btn-info" %>
+        <% end %>
+      </div>
+      <div class="col-md-4">
+        <%= bootstrap_form_tag url: import_seminars_path do |f| %>
+          <%= f.file_field :seminar_import_file %>
+          <%= f.submit "Загрузить", class: "btn btn-sm btn-info" %>
+        <% end %>
+      </div>
     </div>
   </div>
   <hr>

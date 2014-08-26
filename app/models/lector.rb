@@ -23,8 +23,6 @@ class Lector < ActiveRecord::Base
 					lectors_updated += 1
 				end
 
-				 byebug if row[1] == 260
-
 				lector_names = row[2].split
 				if lector_names.length == 2
 					lector.last_name = lector_names[1]

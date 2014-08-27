@@ -30,9 +30,9 @@
   <hr>
   <div class="row">
     <h4><%= link_to "Лекторы", :controller => :lectors, :action => :index %> (<%= @lectors %>)</h4>
-    <h4><%= link_to "Типы семинаров", :controller => :lectors, :action => :index %> (<%= @types %>)</h4>
-    <h4><%= link_to "Разделы семинаров", :controller => :lectors, :action => :index %> (<%= @sections %>)</h4>
-    <h4><%= link_to "Семинары", :controller => :lectors, :action => :index %> (<%= @seminars %>)</h4>
+    <h4><%= link_to "Типы семинаров", :controller => :seminar_types, :action => :index %> (<%= @types %>)</h4>
+    <h4><%= link_to "Разделы семинаров", :controller => :seminar_sections, :action => :index %> (<%= @sections %>)</h4>
+    <h4><%= link_to "Семинары", :controller => :seminars, :action => :index %> (<%= @seminars %>)</h4>
     <h4><%= link_to "Программы семинаров", :controller => :seminar_programs, :action => :index %> (<%= @programs %>)</h4>    
   </div>
   <div class="row">

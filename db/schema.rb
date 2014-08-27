@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140825134215) do
+ActiveRecord::Schema.define(version: 20140827152532) do
 
   create_table "imports", force: true do |t|
     t.date     "date"
@@ -38,16 +38,20 @@ ActiveRecord::Schema.define(version: 20140825134215) do
   end
 
   create_table "seminar_sections", force: true do |t|
-    t.string   "section"
+    t.string   "name"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
 
+  add_index "seminar_sections", ["name"], name: "index_seminar_sections_on_name", using: :btree
+
   create_table "seminar_types", force: true do |t|
-    t.string   "type"
+    t.string   "name"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
+
+  add_index "seminar_types", ["name"], name: "index_seminar_types_on_name", using: :btree
 
   create_table "seminars", force: true do |t|
     t.integer  "ruseminar_id"
@@ -57,12 +61,12 @@ ActiveRecord::Schema.define(version: 20140825134215) do
     t.date     "date_start"
     t.date     "date_end"
     t.integer  "online"
-    t.integer  "lector"
     t.string   "url"
     t.integer  "price1"
     t.integer  "price2"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.string   "lectors"
   end
 
 end

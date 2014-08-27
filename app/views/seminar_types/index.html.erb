@@ -1,6 +1,6 @@
 <h1>Listing seminar_types</h1>
 
-<table>
+<table class="table">
   <thead>
     <tr>
       <th>Type</th>
@@ -11,7 +11,7 @@
   <tbody>
     <% @seminar_types.each do |seminar_type| %>
       <tr>
-        <td><%= seminar_type.type %></td>
+        <td><%= seminar_type.name %></td>
         <td><%= link_to 'Show', seminar_type %></td>
         <td><%= link_to 'Edit', edit_seminar_type_path(seminar_type) %></td>
         <td><%= link_to 'Destroy', seminar_type, method: :delete, data: { confirm: 'Are you sure?' } %></td>

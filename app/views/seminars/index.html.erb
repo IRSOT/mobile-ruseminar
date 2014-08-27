@@ -1,6 +1,6 @@
 <h1>Listing seminars</h1>
 
-<table>
+<table class="table">
   <thead>
     <tr>
       <th>Ruseminar</th>
@@ -22,14 +22,26 @@
     <% @seminars.each do |seminar| %>
       <tr>
         <td><%= seminar.ruseminar_id %></td>
-        <td><%= seminar.title %></td>
+        <td>
+          <% sp = SeminarProgram.find_by_ruseminar_id(seminar.ruseminar_id) %>
+          <%= link_to seminar.title, sp %>
+        </td>
         <td><%= seminar.type %></td>
         <td><%= seminar.section %></td>
         <td><%= seminar.date_start %></td>
         <td><%= seminar.date_end %></td>
         <td><%= seminar.online %></td>
-        <td><%= seminar.lector %></td>
-        <td><%= seminar.url %></td>
+        <td>
+          <% seminar.lectors.split(',').each do |lector_id| %>
+            <% lector = Lector.find_by_id(lector_id) %>
+            <% if !lector.nil? %>
+              <%= link_to lector.name, lector %>
+            <% else %>
+              <%= lector_id %>
+            <% end %>
+          <% end %>
+        </td>
+        <td><%= link_to seminar.url, seminar.url %></td>
         <td><%= seminar.price1 %></td>
         <td><%= seminar.price2 %></td>
         <td><%= link_to 'Show', seminar %></td>

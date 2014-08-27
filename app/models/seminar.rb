@@ -1,6 +1,66 @@
 class Seminar < ActiveRecord::Base
-	has_many :lectors
+	# has_many :lectors
 	has_one :seminar_type
 	has_one :seminar_section
 	has_one :seminar_program
+
+
+	def self.import(file)
+		# print file.path
+
+		i = 0
+		seminars_new = 0
+		seminars_updated = 0
+
+		CSV.foreach(file.path, col_sep: ";", encoding: "UTF-8", quote_char: '"') do |row|
+			# lector.save!
+
+			if i > 0 
+				seminar = self.find_by_ruseminar_id(row[1])
+				if !seminar
+					seminar = new
+					seminar.ruseminar_id = row[1]
+					seminars_new += 1
+				else
+					seminars_updated += 1
+				end
+
+				seminar.title = row[2]
+
+				# seminar type & section
+
+				type = SeminarType.find_by_name(row[3])
+				if !type
+					type = SeminarType.new()
+					type.name = row[3]
+					type.save!
+				end
+
+				section = SeminarSection.find_by_name(row[4])
+				if !section
+					section = SeminarSection.new()
+					section.name = row[4]
+					section.save!
+				end
+
+				seminar.type = type
+				seminar.section = section
+
+				seminar.date_start = row[5]
+				seminar.date_end = row[6]
+
+				seminar.online = row[7] == "yes" ? 1 : 0
+
+				seminar.lectors = row[11]
+				seminar.url = row[12]
+				seminar.price1 = row[13]
+				seminar.price2 = row[14]
+
+				seminar.save
+			end
+			i += 1
+		end
+		return [seminars_new, seminars_updated]
+	end
+
 end

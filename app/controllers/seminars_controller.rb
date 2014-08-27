@@ -7,6 +7,21 @@ class SeminarsController < ApplicationController
     @seminars = Seminar.all
   end
 
+  def import
+    file = params[:seminar_import_file]
+    if file.nil?
+      redirect_to admin_url, alert: "No file uploaded!"
+      return
+    end
+
+    import_result = Seminar.import(file)
+    if !import_result.empty?
+      import = Import.new(date: Date.today, file: file.original_filename)
+      import.save!
+      redirect_to admin_url, notice: "Seminars import: #{import_result[0]} seminars added, #{import_result[1]} seminars updated, file: #{import.file}"
+    end
+  end
+
   # GET /seminars/1
   # GET /seminars/1.json
   def show

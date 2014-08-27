@@ -43,4 +43,8 @@ class Lector < ActiveRecord::Base
 		return [lectors_new, lectors_updated]
 	end
 
+	def name
+		"#{first_name} #{father_name} #{last_name}"
+	end
+
 end

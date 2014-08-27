@@ -33,6 +33,14 @@
     <h4><%= link_to "Типы семинаров", :controller => :lectors, :action => :index %> (<%= @types %>)</h4>
     <h4><%= link_to "Разделы семинаров", :controller => :lectors, :action => :index %> (<%= @sections %>)</h4>
     <h4><%= link_to "Семинары", :controller => :lectors, :action => :index %> (<%= @seminars %>)</h4>
-    <h4><%= link_to "Программы семинаров", :controller => :lectors, :action => :index %> (<%= @programs %>)</h4>    
+    <h4><%= link_to "Программы семинаров", :controller => :seminar_programs, :action => :index %> (<%= @programs %>)</h4>    
+  </div>
+  <div class="row">
+    <h4>Imports</h4>
+    <ul>
+    <% @imports.each do |row| %>
+      <li><%= row.date %>&nbsp;<%= row.file %></li>
+    <% end %>
+    </ul>
   </div>
 </div>

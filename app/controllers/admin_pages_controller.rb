@@ -5,5 +5,7 @@ class AdminPagesController < ApplicationController
   	@seminars = Seminar.count
   	@types = SeminarType.count
   	@sections = SeminarSection.count
+
+  	@imports = Import.last(10)
   end
 end

@@ -12,16 +12,18 @@ class SeminarProgram < ActiveRecord::Base
 			# lector.save!
 
 			if i > 0 
-				sp = self.find_by_id(row[1])
+				sp = self.find_by_ruseminar_id(row[0])
 				if !sp
 					sp = new
-					sp.id = row[1]
+					sp.ruseminar_id = row[0]
 					sp_new += 1
 				else
 					sp_updated += 1
 				end
 
-				sp.program = row[2]
+				# byebug
+
+				sp.program = row[2].to_s.gsub(/@@/, ';')
 				sp.save
 			end
 			i += 1

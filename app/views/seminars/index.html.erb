@@ -26,8 +26,8 @@
           <% sp = SeminarProgram.find_by_ruseminar_id(seminar.ruseminar_id) %>
           <%= link_to seminar.title, sp %>
         </td>
-        <td><%= seminar.type %></td>
-        <td><%= seminar.section %></td>
+        <td><%= seminar.seminar_type.name %></td>
+        <td><%= seminar.seminar_section.name %></td>
         <td><%= seminar.date_start %></td>
         <td><%= seminar.date_end %></td>
         <td><%= seminar.online %></td>

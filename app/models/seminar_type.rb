@@ -1,3 +1,3 @@
 class SeminarType < ActiveRecord::Base
-	belongs_to :seminar
+	# belongs_to :seminar
 end

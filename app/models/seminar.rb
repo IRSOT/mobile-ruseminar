@@ -1,7 +1,7 @@
 class Seminar < ActiveRecord::Base
 	# has_many :lectors
-	has_one :seminar_type
-	has_one :seminar_section
+	belongs_to :seminar_type
+	belongs_to :seminar_section
 	has_one :seminar_program
 
 	validates :lectors, presence: true
@@ -44,8 +44,9 @@ class Seminar < ActiveRecord::Base
 					section.save!
 				end
 
-				seminar.type = type
-				seminar.section = section
+				seminar.seminar_type = type
+				seminar.seminar_section = section
+				# byebug
 
 				seminar.date_start = row[5]
 				seminar.date_end = row[6]

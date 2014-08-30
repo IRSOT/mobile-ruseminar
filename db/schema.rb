@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140827152532) do
+ActiveRecord::Schema.define(version: 20140830144103) do
 
   create_table "imports", force: true do |t|
     t.date     "date"
@@ -56,8 +56,6 @@ ActiveRecord::Schema.define(version: 20140827152532) do
   create_table "seminars", force: true do |t|
     t.integer  "ruseminar_id"
     t.string   "title"
-    t.integer  "type"
-    t.integer  "section"
     t.date     "date_start"
     t.date     "date_end"
     t.integer  "online"
@@ -67,6 +65,8 @@ ActiveRecord::Schema.define(version: 20140827152532) do
     t.datetime "created_at"
     t.datetime "updated_at"
     t.string   "lectors"
+    t.integer  "seminar_type_id"
+    t.integer  "seminar_section_id"
   end
 
 end

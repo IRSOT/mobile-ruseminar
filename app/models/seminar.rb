@@ -4,6 +4,7 @@ class Seminar < ActiveRecord::Base
 	has_one :seminar_section
 	has_one :seminar_program
 
+	validates :lectors, presence: true
 
 	def self.import(file)
 		# print file.path
@@ -51,10 +52,11 @@ class Seminar < ActiveRecord::Base
 
 				seminar.online = row[7] == "yes" ? 1 : 0
 
-				seminar.lectors = row[11]
-				seminar.url = row[12]
-				seminar.price1 = row[13]
-				seminar.price2 = row[14]
+				# TODO: check field for emptyness
+				seminar.lectors = row[12]
+				seminar.url = row[13]
+				seminar.price1 = row[14]
+				seminar.price2 = row[15]
 
 				seminar.save
 			end

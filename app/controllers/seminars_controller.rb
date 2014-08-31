@@ -84,6 +84,6 @@ class SeminarsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def seminar_params
-      params.require(:seminar).permit(:ruseminar_id, :title, :type, :section, :date_start, :date_end, :online, :lectors, :url, :price1, :price2)
+      params.require(:seminar).permit(:ruseminar_id, :title, :seminar_type_id, :seminar_section_id, :date_start, :date_end, :online, :lectors, :url, :price1, :price2)
     end
 end

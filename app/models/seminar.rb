@@ -69,7 +69,6 @@ class Seminar < ActiveRecord::Base
 		return [seminars_new, seminars_updated]
 	end
 
-
 	def program
 		SeminarProgram.find_by_ruseminar_id(ruseminar_id).program
 	end

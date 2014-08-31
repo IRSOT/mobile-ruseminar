@@ -2,7 +2,7 @@ class Seminar < ActiveRecord::Base
 	# has_many :lectors
 	belongs_to :seminar_type
 	belongs_to :seminar_section
-	has_one :seminar_program
+	# has_one :seminar_program, as: :program
 
 	validates :lectors, presence: true
 
@@ -64,6 +64,11 @@ class Seminar < ActiveRecord::Base
 			i += 1
 		end
 		return [seminars_new, seminars_updated]
+	end
+
+
+	def program
+		SeminarProgram.find_by_ruseminar_id(ruseminar_id).program
 	end
 
 end

@@ -58,6 +58,9 @@ class Seminar < ActiveRecord::Base
 				seminar.url = row[13]
 				seminar.price1 = row[14]
 				seminar.price2 = row[15]
+				if !seminar.price1
+					seminar.price1 = 0
+				end
 				if !seminar.price2 
 					seminar.price2 = 0
 				end

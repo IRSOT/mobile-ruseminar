@@ -22,6 +22,7 @@ Rails.application.routes.draw do
   get 'contacts' => 'static_pages#contacts'
 
   get 'allseminarstype' => 'static_pages#allseminarstype'
+  get 'lastupdate' => 'static_pages#lastupdate'
   
   root 'static_pages#home'
 

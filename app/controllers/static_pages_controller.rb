@@ -15,7 +15,7 @@ class StaticPagesController < ApplicationController
   end
 
   def lastupdate
-    @lastupdate = Import.last.updated_at
+    @lastupdate = Import.last.updated_at.to_time.to_i
     respond_to do |format|
       format.json { render json: @lastupdate }
     end

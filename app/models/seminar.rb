@@ -26,7 +26,7 @@ class Seminar < ActiveRecord::Base
 					seminars_updated += 1
 				end
 
-				seminar.title = row[2]
+				seminar.title = row[2].strip
 
 				# seminar type & section
 

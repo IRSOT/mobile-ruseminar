@@ -35,11 +35,11 @@ class Lector < ActiveRecord::Base
 				end
 
 				if lector.last_name.include? 'Ё'
-					lector.last_name = lector.last_name.sub('Е')
+					lector.last_name = lector.last_name.sub('Ё', 'Е')
 				end
 
 				if lector.last_name.include? 'ё'
-					lector.last_name = lector.last_name.sub('е')
+					lector.last_name = lector.last_name.sub('ё','е')
 				end
 
 				lector.bio = row[3]

@@ -19,6 +19,8 @@ class LectorsController < ApplicationController
       import = Import.new(date: Date.today, file: file.original_filename)
       import.save!
       redirect_to admin_url, notice: "Lector import: #{import_result[0]} lectors added, #{import_result[1]} lectors updated, file: #{import.file}"
+    else
+      redirect_to admin_url, alert: "You have uploaded incorrect or empty file!"
     end
   end
 

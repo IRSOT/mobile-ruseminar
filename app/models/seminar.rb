@@ -9,6 +9,7 @@ class Seminar < ActiveRecord::Base
 	def self.import(file)
 		# print file.path
 
+
 		i = 0
 		seminars_new = 0
 		seminars_updated = 0
@@ -66,7 +67,12 @@ class Seminar < ActiveRecord::Base
 				end
 
 				seminar.save
+			else
+				if !row[2].include? "Название"
+					return Array.new()
+				end
 			end
+
 			i += 1
 		end
 		return [seminars_new, seminars_updated]

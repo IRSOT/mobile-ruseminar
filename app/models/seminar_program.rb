@@ -25,6 +25,10 @@ class SeminarProgram < ActiveRecord::Base
 
 				sp.program = row[2].to_s.gsub(/@@/, ';')
 				sp.save
+			else
+				if !row[2].include? "Программа"
+					return Array.new()
+				end
 			end
 			i += 1
 		end

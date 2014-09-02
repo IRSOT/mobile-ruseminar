@@ -45,6 +45,10 @@ class Lector < ActiveRecord::Base
 				lector.bio = row[3]
 				lector.photo_url = row[4]
 				lector.save
+			else
+				if !row[2].include? "ФИО"
+					return Array.new()
+				end
 			end
 			i += 1
 		end

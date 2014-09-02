@@ -19,6 +19,8 @@ class SeminarsController < ApplicationController
       import = Import.new(date: Date.today, file: file.original_filename)
       import.save!
       redirect_to admin_url, notice: "Seminars import: #{import_result[0]} seminars added, #{import_result[1]} seminars updated, file: #{import.file}"
+    else
+      redirect_to admin_url, alert: "You have uploaded incorrect or empty file!"
     end
   end
 

@@ -34,6 +34,14 @@ class Lector < ActiveRecord::Base
 					lector.father_name = lector_names[1]
 				end
 
+				if lector.last_name.include? 'Ё'
+					lector.last_name = lector.last_name.sub('Е')
+				end
+
+				if lector.last_name.include? 'ё'
+					lector.last_name = lector.last_name.sub('е')
+				end
+
 				lector.bio = row[3]
 				lector.photo_url = row[4]
 				lector.save

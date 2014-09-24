@@ -20,6 +20,10 @@
 # available at http://guides.rubyonrails.org/i18n.html.
 
 ru:
+  devise:
+    sessions:
+      signed_in: "Вы успешно авторизовались"
+      signed_out: "Вы вышли"
   hello: "Привет мир!"
   activerecord:
     attributes:

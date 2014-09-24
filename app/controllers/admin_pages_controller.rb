@@ -1,4 +1,6 @@
 class AdminPagesController < ApplicationController
+  before_action :authenticate_admin!
+
   def index
   	@lectors = Lector.count
   	@programs = SeminarProgram.count

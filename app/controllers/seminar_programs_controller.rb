@@ -1,10 +1,22 @@
 class SeminarProgramsController < ApplicationController
+  before_action :authenticate_admin!, :except => [:index]
   before_action :set_seminar_program, only: [:show, :edit, :update, :destroy]
 
   # GET /seminar_programs
   # GET /seminar_programs.json
   def index
-    @seminar_programs = SeminarProgram.all
+
+    respond_to do |format|
+        format.html do
+          if admin_signed_in?
+                @seminar_programs = SeminarProgram.all
+          else 
+            authenticate_admin!
+          end
+        end
+        format.json { @seminar_programs = SeminarProgram.all }
+    end
+    
   end
 
   def import

@@ -1,13 +1,28 @@
 class LectorsController < ApplicationController
+  before_action :authenticate_admin!, :except => [:index]
   before_action :set_lector, only: [:show, :edit, :update, :destroy]
 
   # GET /lectors
   # GET /lectors.json
   def index
-    @lectors = Lector.all
+        respond_to do |format|
+        format.html do
+          if admin_signed_in?
+            @lectors = Lector.all
+          else 
+            authenticate_admin!
+          end
+        end
+        format.json { @lectors = Lector.all }
+    end
   end
 
   def import
+    if !admin_signed_in?
+      authenticate_admin!
+      return
+    end
+
     file = params[:lector_import_file]
     if file.nil?
       redirect_to admin_url, alert: "No file uploaded!"
@@ -27,6 +42,10 @@ class LectorsController < ApplicationController
   # GET /lectors/1
   # GET /lectors/1.json
   def show
+    if !admin_signed_in?
+      authenticate_admin!
+      return
+    end
   end
 
   # GET /lectors/new

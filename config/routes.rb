@@ -1,5 +1,13 @@
 Rails.application.routes.draw do
   
+  # devise_for :admins
+
+  # devise_scope :admin do
+  #   get '/login' => "devise/sessions#new"
+  #   get '/logout' => "devise/sessions#destroy"
+  # end
+  devise_for :admins, :path => '', :path_names => {:sign_in => 'login', :sign_out => 'logout'}
+
   resources :seminars do
     collection { post :import }
   end

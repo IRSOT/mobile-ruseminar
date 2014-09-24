@@ -1,10 +1,23 @@
 class SeminarsController < ApplicationController
+  before_action :authenticate_admin!, :except => [:index]
   before_action :set_seminar, only: [:show, :edit, :update, :destroy]
+
 
   # GET /seminars
   # GET /seminars.json
   def index
-    @seminars = Seminar.all.order(:date_start)
+  
+    respond_to do |format|
+        format.html do
+          if admin_signed_in?
+            @seminars = Seminar.all.order(:date_start)
+          else 
+            authenticate_admin!
+          end
+
+        end
+        format.json { @seminars = Seminar.all.order(:date_start) }
+    end
   end
 
   def import

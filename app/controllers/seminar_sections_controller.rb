@@ -1,10 +1,20 @@
 class SeminarSectionsController < ApplicationController
+  before_action :authenticate_admin!, :except => [:index]
   before_action :set_seminar_section, only: [:show, :edit, :update, :destroy]
 
   # GET /seminar_sections
   # GET /seminar_sections.json
   def index
-    @seminar_sections = SeminarSection.all
+      respond_to do |format|
+        format.html do
+          if admin_signed_in?
+                @seminar_sections = SeminarSection.all
+          else 
+            authenticate_admin!
+          end
+        end
+        format.json { @seminar_sections = SeminarSection.all }
+    end
   end
 
   # GET /seminar_sections/1

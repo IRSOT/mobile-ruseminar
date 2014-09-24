@@ -1,10 +1,21 @@
 class SeminarTypesController < ApplicationController
+  before_action :authenticate_admin!, :except => [:index]
+
   before_action :set_seminar_type, only: [:show, :edit, :update, :destroy]
 
   # GET /seminar_types
   # GET /seminar_types.json
   def index
-    @seminar_types = SeminarType.all
+    respond_to do |format|
+        format.html do
+          if admin_signed_in?
+                @seminar_types = SeminarType.all
+          else 
+            authenticate_admin!
+          end
+        end
+        format.json { @seminar_types = SeminarType.all }
+    end
   end
 
   # GET /seminar_types/1

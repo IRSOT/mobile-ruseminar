@@ -20,7 +20,7 @@
 				</ul>
 				<ul class="nav navbar-nav navbar-right">
 					<li><% if admin_signed_in? %>
-						  <%= link_to('Выйти', logout_path) %> 
+						  <%= link_to('Выйти', destroy_admin_session_path, :method => 'delete') %> 
 						<% end %>
 					</li>
 				</ul>

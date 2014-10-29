@@ -5,15 +5,15 @@ class LectorsController < ApplicationController
   # GET /lectors
   # GET /lectors.json
   def index
-        respond_to do |format|
-        format.html do
-          if admin_signed_in?
-            @lectors = Lector.all
-          else 
-            authenticate_admin!
-          end
+    respond_to do |format|
+      format.html do
+        if admin_signed_in?
+          @lectors = Lector.all
+        else 
+          authenticate_admin!
         end
-        format.json { @lectors = Lector.all }
+      end
+      format.json { @lectors = Lector.all }
     end
   end
 

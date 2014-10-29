@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20141029135647) do
+ActiveRecord::Schema.define(version: 20141029141712) do
 
   create_table "admins", force: true do |t|
     t.string   "email",                  default: "", null: false
@@ -40,7 +40,7 @@ ActiveRecord::Schema.define(version: 20141029135647) do
 
   create_table "info_settings", force: true do |t|
     t.string   "category"
-    t.string   "url"
+    t.string   "page_url"
     t.string   "title_rus"
     t.string   "title_eng"
     t.datetime "created_at"

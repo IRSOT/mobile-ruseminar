@@ -1,6 +1,6 @@
-<h1>Listing info_settings</h1>
+<% provide(:title, "Настройка страницы Важно") %>
 
-<table>
+<table class="table table-striped">
   <thead>
     <tr>
       <th>Category</th>
@@ -15,7 +15,7 @@
     <% @info_settings.each do |info_setting| %>
       <tr>
         <td><%= info_setting.category %></td>
-        <td><%= info_setting.url %></td>
+        <td><%= info_setting.page_url %></td>
         <td><%= info_setting.title_rus %></td>
         <td><%= info_setting.title_eng %></td>
         <td><%= link_to 'Show', info_setting %></td>

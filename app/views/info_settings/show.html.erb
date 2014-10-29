@@ -1,0 +1,24 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Category:</strong>
+  <%= @info_setting.category %>
+</p>
+
+<p>
+  <strong>Url:</strong>
+  <%= @info_setting.url %>
+</p>
+
+<p>
+  <strong>Title rus:</strong>
+  <%= @info_setting.title_rus %>
+</p>
+
+<p>
+  <strong>Title eng:</strong>
+  <%= @info_setting.title_eng %>
+</p>
+
+<%= link_to 'Edit', edit_info_setting_path(@info_setting) %> |
+<%= link_to 'Back', info_settings_path %>

@@ -1,5 +1,7 @@
 Rails.application.routes.draw do
   
+  resources :info_settings
+
   # devise_for :admins
 
   # devise_scope :admin do

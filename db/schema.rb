@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140924154118) do
+ActiveRecord::Schema.define(version: 20141029135647) do
 
   create_table "admins", force: true do |t|
     t.string   "email",                  default: "", null: false
@@ -34,6 +34,15 @@ ActiveRecord::Schema.define(version: 20140924154118) do
   create_table "imports", force: true do |t|
     t.date     "date"
     t.string   "file"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "info_settings", force: true do |t|
+    t.string   "category"
+    t.string   "url"
+    t.string   "title_rus"
+    t.string   "title_eng"
     t.datetime "created_at"
     t.datetime "updated_at"
   end

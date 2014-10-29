@@ -35,6 +35,8 @@ class InfoSettingsController < ApplicationController
 
     respond_to do |format|
       if @info_setting.save
+        import = Import.new(date: Date.today, file: "info page #{@info_setting.category} added")
+        import.save!
         format.html { redirect_to @info_setting, notice: 'URL and title were successfully created.' }
         format.json { render :show, status: :created, location: @info_setting }
       else
@@ -47,6 +49,9 @@ class InfoSettingsController < ApplicationController
   def update
     respond_to do |format|
       if @info_setting.update(info_setting_params)
+        import = Import.new(date: Date.today, file: "info page #{@info_setting.category} updated")
+        import.save!
+
         format.html { redirect_to @info_setting, notice: 'URL and title were successfully updated.' }
         format.json { render :show, status: :ok, location: @lector }
       else
@@ -58,7 +63,9 @@ class InfoSettingsController < ApplicationController
 
   def destroy
     @info_setting.destroy
+    import = Import.new(date: Date.today, file: "info page #{@info_setting.category} deleted")
     respond_to do |format|
+
       format.html { redirect_to info_settings_url, notice: 'URL and title were successfully destroyed.' }
       format.json { head :no_content }
     end
